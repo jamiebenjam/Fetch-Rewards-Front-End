@@ -1,26 +1,25 @@
 import React, { useState, useEffect } from "react";
 
 const Form = () => {
-  //   const [formState, setFormState] = useState({
-  //     name: "",
-  //     email: "",
-  //     password: "",
-  //     occupation: "",
-  //     state: "",
-  //     formErrors: {
-  //       name: "",
-  //       email: "",
-  //       password: "",
-  //       occupation: "",
-  //       state: "",
-  //     },
-  //     emailValid: false,
-  //     passwordValid: false,
-  //     formValid: false,
-  //   });
-
   const [occupations, setOccupations] = useState([]);
   const [states, setStates] = useState([]);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    occupation: "",
+    state: "",
+    // formErrors: {
+    //   name: "",
+    //   email: "",
+    //   password: "",
+    //   occupation: "",
+    //   state: "",
+    // },
+    // emailValid: false,
+    // passwordValid: false,
+    // formValid: false,
+  });
 
   useEffect(() => {
     fetch("https://frontend-take-home.fetchrewards.com/form")
@@ -31,24 +30,27 @@ const Form = () => {
       });
   }, []);
 
-  console.log(occupations);
-  console.log(states);
-
-  const handleOccupationChange = () => {
-    console.log("changedOccupation");
+  const handleFormChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  const handleStateChange = () => {
-    console.log("changedState");
-  };
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
 
-  // const handleUserInput = (e) => {
-  //     e.preventDefault();
-  //     const newFormObj = {
-  //         email: '',
-  //         password: ''
-  //     }
-  // }
+    fetch("https://frontend-take-home.fetchrewards.com/form", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  };
 
   return (
     <div>
@@ -56,29 +58,59 @@ const Form = () => {
         <h2>Sign Up</h2>
         <div className="form-group">
           <label htmlFor="name">Name</label>
-          <input type="name" className="form-control" name="name" />
+          <input
+            onChange={handleFormChange}
+            type="name"
+            className="form-control"
+            name="name"
+            value={formData.name}
+          />
 
           <label htmlFor="email">Email address</label>
-          <input type="email" className="form-control" name="email" />
+          <input
+            onChange={handleFormChange}
+            type="email"
+            className="form-control"
+            name="email"
+            value={formData.email}
+          />
 
           <label htmlFor="password">Password</label>
-          <input type="password" className="form-control" name="password" />
+          <input
+            onChange={handleFormChange}
+            type="password"
+            className="form-control"
+            name="password"
+            value={formData.password}
+          />
 
-          <label htmlFor="occupation">Select Occupation</label>
-          <select className="form-control" onChange={handleOccupationChange}>
+          <label htmlFor="occupation">Occupation</label>
+          <select
+            className="form-control"
+            onChange={handleFormChange}
+            name="occupation"
+          >
             {occupations.map((occupation) => (
               <option value={occupation}>{occupation}</option>
             ))}
           </select>
 
           <label htmlFor="state">State</label>
-          <select className="form-control" onChange={handleStateChange}>
+          <select
+            className="form-control"
+            onChange={handleFormChange}
+            name="state"
+          >
             {states.map((state) => (
               <option value={state.name}>{state.abbreviation}</option>
             ))}
           </select>
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button
+          onClick={handleFormSubmit}
+          type="submit"
+          className="btn btn-primary"
+        >
           Sign up
         </button>
       </form>
