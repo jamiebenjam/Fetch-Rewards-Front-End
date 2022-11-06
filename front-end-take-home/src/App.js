@@ -5,13 +5,12 @@ import FormSuccess from "./FormSuccess";
 
 function App() {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  console.log(isSubmitted);
   return (
     <div className="app">
-      {!isSubmitted ? (
-        <UserForm setIsSubmitted={setIsSubmitted} isSubmitted={isSubmitted} />
-      ) : (
+      {isSubmitted ? (
         <FormSuccess />
+      ) : (
+        <UserForm setIsSubmitted={setIsSubmitted} />
       )}
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import TextInput from "./TextInput";
 
-const UserForm = ({ setIsSubmitted, isSubmitted }) => {
+const UserForm = ({ setIsSubmitted }) => {
   const [occupations, setOccupations] = useState([]);
   const [states, setStates] = useState([]);
   const [formErrors, setFormErrors] = useState({});
@@ -27,12 +28,6 @@ const UserForm = ({ setIsSubmitted, isSubmitted }) => {
       [e.target.name]: e.target.value,
     }));
   };
-
-  useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmitted) {
-      console.log(formData);
-    }
-  }, [formErrors]);
 
   const validate = (values) => {
     const errors = {};
@@ -61,9 +56,8 @@ const UserForm = ({ setIsSubmitted, isSubmitted }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
     let errors = validate(formData);
-    if (errors.length > 0) {
+    if (Object.keys(errors).length > 0) {
       setFormErrors(errors);
     } else {
       fetch("https://frontend-take-home.fetchrewards.com/form", {
@@ -82,44 +76,38 @@ const UserForm = ({ setIsSubmitted, isSubmitted }) => {
     }
   };
 
-  console.log(isSubmitted);
+  console.log(formData);
 
   return (
     <div>
       <form className="demoForm">
         <h1 className="form-heading">Join our team!</h1>
         <div className="form-group">
-          <input
-            placeholder="Your Name*"
-            onChange={handleFormChange}
-            type="name"
-            className="form-control"
+          <TextInput
             name="name"
+            handleFormChange={handleFormChange}
+            errorMessage={formErrors.name}
+            placeholder="Your Name*"
             value={formData.name}
           />
-          <p className="error-message">{formErrors.name}</p>
 
-          <input
-            placeholder="Your Email*"
-            onChange={handleFormChange}
-            type="email"
-            className="form-control"
+          <TextInput
             name="email"
+            handleFormChange={handleFormChange}
+            errorMessage={formErrors.email}
+            placeholder="Your Email*"
             value={formData.email}
           />
-          <p className="error-message">{formErrors.email}</p>
 
-          <input
-            placeholder="Password*"
-            onChange={handleFormChange}
-            type="password"
-            className="form-control"
+          <TextInput
             name="password"
+            handleFormChange={handleFormChange}
+            errorMessage={formErrors.password}
+            placeholder="Password*"
             value={formData.password}
           />
-          <p className="error-message">{formErrors.password}</p>
 
-          <br></br>
+          <br />
 
           <select
             className="form-control"
@@ -127,8 +115,8 @@ const UserForm = ({ setIsSubmitted, isSubmitted }) => {
             name="occupation"
           >
             <option>Select Occupation*</option>
-            {occupations.map((occupation) => (
-              <option key={occupation.id} value={occupation}>
+            {occupations.map((occupation, index) => (
+              <option key={index} value={occupation}>
                 {occupation}
               </option>
             ))}
@@ -141,12 +129,15 @@ const UserForm = ({ setIsSubmitted, isSubmitted }) => {
             name="state"
           >
             <option>Select State*</option>
-            {states.map((state) => (
-              <option value={state.name}>{state.abbreviation}</option>
+            {states.map((state, index) => (
+              <option key={index} value={state.name}>
+                {state.abbreviation}
+              </option>
             ))}
           </select>
           <p className="error-message">{formErrors.state}</p>
         </div>
+
         <button
           className="submit-button"
           onClick={handleFormSubmit}
