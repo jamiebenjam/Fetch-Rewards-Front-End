@@ -1,27 +1,18 @@
 import "./App.css";
-import { useEffect, useState } from "react";
-import Form from "./Form";
+import { useState } from "react";
+import UserForm from "./UserForm";
+import FormSuccess from "./FormSuccess";
 
 function App() {
-  // const [occupations, setOccupations] = useState([]);
-  // const [states, setStates] = useState([]);
-
-  // useEffect(() => {
-  //   fetch("https://frontend-take-home.fetchrewards.com/form")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setOccupations(data.occupations);
-  //       setStates(data.states);
-  //     });
-  // }, []);
-
-  // console.log(occupations);
-  // console.log(states);
-
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  console.log(isSubmitted);
   return (
-    <div className="App">
-      im making a form yay
-      <Form />
+    <div className="app">
+      {!isSubmitted ? (
+        <UserForm setIsSubmitted={setIsSubmitted} isSubmitted={isSubmitted} />
+      ) : (
+        <FormSuccess />
+      )}
     </div>
   );
 }
