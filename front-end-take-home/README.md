@@ -16,10 +16,10 @@ The prompt allowed for a great deal of creative direction given the information 
 
 Clone this repository to your system,
 
-### `cd front-end-take-home`
+### `$ cd front-end-take-home`
 
 and run:
 
-### `npm start`
+### `$ npm start`
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
