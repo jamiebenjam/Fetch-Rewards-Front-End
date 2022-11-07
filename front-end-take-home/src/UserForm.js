@@ -84,7 +84,7 @@ const UserForm = ({ setIsSubmitted }) => {
         Faux<span className="logo-span">Co</span>
       </h3>
       <form>
-        <h1 className="form-heading">More about you</h1>
+        <h1 className="form-heading">Applicant Information</h1>
         <div className="form-group">
           <TextInput
             name="name"
