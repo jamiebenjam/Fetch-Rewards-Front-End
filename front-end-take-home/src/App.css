@@ -15,7 +15,7 @@
       rgba(255, 255, 255, 0.1),
       rgba(255, 255, 255, 0.3)
     ),
-    url('.//Images/purple.webp');
+    url('.//Images/purple.jpeg');
   background-size: cover;
   background-position: center;
 }
@@ -107,7 +107,7 @@ form {
 
 .logo-span {
   font-family: Bo;
-  color: #b47a38;
+  color: #af1b85;
   font-weight: 300;
   font-size: 22px;
 }
