@@ -14,7 +14,11 @@ The prompt allowed for a great deal of creative direction given the information 
 
 ## Installation
 
-Clone this repository to your system and run:
+Clone this repository to your system,
+
+### `cd front-end-take-home`
+
+and run:
 
 ### `npm start`
 
