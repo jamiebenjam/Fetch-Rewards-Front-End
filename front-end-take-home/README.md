@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# FauxCo Job Application Form
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This React application has a form with name, email, and password fields as well as dropdown selections for occupation and state. All fields are required with additional regex email validation and a 12 character minimum password. The form shows error messages and will not submit if the requirements are not met. Once all fields are filled out correctly, the submit button will take the user to a submission success message.
 
-## Available Scripts
+TextInput.js is a reusable component containing code for the name, email, and password input fields and allows for easy additions of field inputs for future use. I created this component when I noticed repetition in the input attributes and realized it could be refactored.
 
-In the project directory, you can run:
+## Styling
 
-### `npm start`
+Styling was comprised of custom fonts, sourced background images and PNGs, as well as custom CSS and Bootstrap. My vision was to incorporate element's of Fetch Rewards' purple color scheme and bright colors but bring my own perspective. Fetch Rewards uses very fun, bright, saturated colors on their site. While my application uses some intense color, it leans calmer due to the hues and soft edges with the gradient as well as rounder edges on the Serif font.
 
-Runs the app in the development mode.\
+## Concept
+
+The prompt allowed for a great deal of creative direction given the information required was name, email, password, occupation, and state. Since recently submitting applications myself and providing the information asked for, this subject was top of mind and I chose to make this form a job application.
+
+## Installation
+
+Clone this repository to your system,
+
+### `$ cd front-end-take-home`
+
+and run:
+
+### `$ npm start`
+
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
