@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TextInput from "./TextInput";
+import logo from ".//Images/aura logo.png";
 
 const UserForm = ({ setIsSubmitted }) => {
   const [occupations, setOccupations] = useState([]);
@@ -76,12 +77,14 @@ const UserForm = ({ setIsSubmitted }) => {
     }
   };
 
-  console.log(formData);
-
   return (
-    <div>
-      <form className="demoForm">
-        <h1 className="form-heading">Join our team!</h1>
+    <div className="form-container">
+      <img className="logo" src={logo} alt="aura-logo" />
+      <h3 className="logo-name">
+        Faux<span className="logo-span">Co</span>
+      </h3>
+      <form>
+        <h1 className="form-heading">More about you</h1>
         <div className="form-group">
           <TextInput
             name="name"
