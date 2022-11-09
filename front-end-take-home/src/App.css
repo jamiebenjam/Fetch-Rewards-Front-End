@@ -8,6 +8,14 @@
   src: url(.//Fonts/BOOWIE.ttf);
 }
 
+@media (max-width: 600px) {
+  .app {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 70px;
+  }
+}
+
 .app {
   display: flex;
   height: 100vh;

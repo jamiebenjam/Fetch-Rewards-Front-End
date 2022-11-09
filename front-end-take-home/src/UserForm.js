@@ -68,6 +68,7 @@ const UserForm = ({ setIsSubmitted }) => {
         },
         body: JSON.stringify(formData),
       })
+      //future use - if (response.ok) for error handling
         .then((response) => response.json())
         .then((data) => {
           if (data.id) {

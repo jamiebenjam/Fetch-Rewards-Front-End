@@ -6,6 +6,9 @@ import Main from "./Main";
 
 function App() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  //future use - different status codes for error handling
+
+
   return (
     <div className="app">
       {isSubmitted ? (
